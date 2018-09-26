@@ -1,0 +1,162 @@
+@import 'base.less';
+html,body{
+    height: 100%;
+}
+body{
+    //给body添加padding让main往下挤(上间距为header的高度,下间距为footer的高度)
+    padding:0.45rem 0 0.5rem;
+    max-width: 6.4rem;
+    margin:0 auto;
+}
+// 头部区域样式
+#header{
+    max-width:6.4rem;
+    height: 0.45rem;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    // 给头部区域设置固定定位
+    position: fixed;
+    top: 0;
+    width: 100%;
+    >form{
+        flex: 1;
+        position: relative;
+        >.icon-search{
+            width: 0.25rem;
+            height: 0.2rem;
+            background-image: url('../images/sprites.png');
+            background-size: 2rem 2rem;
+            background-position: -0.55rem -1.08rem;
+            position: absolute;
+            top:0.1rem;
+            left:0.03rem;
+        }
+        >input{
+            width: 100%;
+            height: 0.3rem;
+            border-radius: 15px;
+            margin-top:0.05rem;
+            padding-left: 0.3rem;
+            font-size: 0.12rem;
+        }
+    }
+    .icon-back, .icon-more{
+        display: block;
+        width: 0.4rem;
+        height: 0.4rem;
+        padding: 0.1rem;
+        background-image: url('../images/sprites.png');
+        background-size: 2rem 2rem;
+        background-origin:content-box;
+        background-clip: content-box;
+    }
+    .icon-back{
+        background-position: -0.2rem 0; 
+    }
+    .icon-more{
+        background-position: -0.6rem 0;
+    }
+}
+
+// 主体区域
+#main{
+    display: flex;
+    height: 100%;
+    .main-left{
+        //必须设置他的高度为100%(既body的高度减去头部和底部的高度)
+        height: 100%;
+        width: 0.85rem;
+        font-size: 0.14rem;
+          //  /* 因为left里面的ul超出了屏幕高度 给ul的父元素left设置隐藏溢出 */
+          // overflow: hidden;
+        /* 左侧滑动的容器的样式 容器高度100%和屏幕一样高  他还有父容器每个父容器都要加100%高度*/
+        .swiper-container{
+            height: 100%;
+             /* 左侧滑动内容的样式 高度自动按内容撑开 */
+                .swiper-slide{
+                    height: auto;
+                    ul{
+                        background-color: #f8f8f8;
+                        >li{
+                            a{
+                                display: block;
+                                line-height: 0.4rem;
+                                text-align: center;
+                            }
+                            &.active{
+                                background-color: #fff;
+                                >a{
+                                    color:#de181b;
+                                }
+                            }
+                        }
+                    }
+                }
+             }
+        }
+    .main-right{
+        padding:0.1rem;
+        flex: 1;
+        //必须设置他的高度为100%(既body的高度减去头部和底部的高度)
+        height: 100%;
+         /* 因为right里面的branchList超出了屏幕高度 给branchList的父元素right设置隐藏溢出 */
+        overflow: hidden;
+        .swiper-container{
+            height: 100%;
+            .swiper-slide{
+                height: auto;
+                #branchList{
+                    .jd-brand{
+                        h4{
+                            font-size: 0.14rem;
+                        }
+                        .jd-category-style-1{
+                            display: flex;
+                            flex-wrap: wrap;
+                            >li{
+                                width: 33.33%;
+                                margin-top:0.1rem;
+                                >a{
+                                    display: block;
+                                    text-align: center;
+                                    >img{
+                                        width: 0.7rem;
+                                        height: 0.7rem;
+                                    }
+                                    span{
+                                        display: block;
+                                        font-size: 0.12rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+    // 底部区域
+    #footer{
+        max-width: 6.4rem;
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        background-color: #fff;
+        >ul{
+            display: flex;
+            text-align: center;
+            >li{
+                width: 25%;
+                >a{
+                    display: block;
+                    >img{
+                        width: 0.65rem;
+                        height: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+    

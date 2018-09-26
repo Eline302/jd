@@ -1,0 +1,86 @@
+/* 公共的样式放到base.less里面 */
+
+/* 公共变量 */
+@mainColor: #e93b3d;
+@borderColor:#ccc;
+@aColor:#666;
+/*样式重置*/
+*{
+    margin: 0;
+    padding: 0;
+    //在移动端设置盒模型border-box,为了防止元素加边框或者padding出现水平滚动条
+    box-sizing: border-box;
+    // 设置移动端点击高亮的背景色,按住时候会出现,设置为透明
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html{
+    font-size: 100px;
+}
+body{
+    font-size: 16px;
+}
+li{
+    list-style: none;
+}
+input{
+    /* 去掉所有移动端内边框 */
+    outline: none;
+    border:none;
+    /*清除移动端默认的表单样式*/
+    -webkit-appearance: none;
+}
+
+a{
+    text-decoration: none;
+    color:@aColor;
+}
+
+img {
+    /* 解决图片3px的间距,为了让图片的对齐方式和文本一致*/
+    vertical-align: middle;
+}
+i{
+	font-style: normal;
+}
+
+/*公共样式*/
+
+.pull-left{
+	float: left;
+}
+.pull-right{
+	float: right;
+}
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+// 公共的图标样式
+// [class^="icon-"],
+// // 属性选择器 匹配类名一icon-开头,或者中间包含了空格icon-的元素
+// [class*=" icon-"]{
+//     //公共的精灵图
+//     background-image: url('../images/sprites.png');
+//     // 设置背景图片的大小,图片要缩小一半来写,背景图就设置背景图大小
+//     background-size: 2rem 2rem;
+// }
+
+.border-top{
+    border-top: 1px solid @borderColor;
+}
+.border-right{
+    border-right: 1px solid @borderColor;
+}
+.border-bottom{
+    border-bottom: 1px solid @borderColor;
+}
+.border-left{
+    border-left: 1px solid @borderColor;
+}
+
+
+
+
+
+
